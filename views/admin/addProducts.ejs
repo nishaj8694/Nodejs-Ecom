@@ -1,0 +1,84 @@
+<%-include('../partials/adminHead.ejs')%>
+
+
+<div class="container-fluid pt-4 px-4 ">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-6 ">
+            <div class="bg-radient class rounded h-100 p-4">
+                <h6 class="mb-4">Add Products</h6>
+                <form method="post" enctype="multipart/form-data" >
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Product Name</label>
+                        <input type="text" name="name" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Price</label>
+                          <input type="number" name="price" class="form-control" id="exampleInputEmail1"
+                              aria-describedby="emailHelp">
+                          <div id="emailHelp" class="form-text">
+                          </div>
+                    </div>
+                 
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Image</label>
+                        <input type="file" class="form-control" name="image" id="exampleInputPassword1">
+                    </div>
+  <div class="mb-3" >
+                    <label class="form-label" for="cars">Category:</label>
+  
+                    <select  class="form-control bg-radient class," name="category" id="cars">
+                        <% for(let i=0; i < categoryData.length; i++) { %>
+                                <option value="<%= categoryData[i].category %>" >
+                                    <%= categoryData[i].category %></option>
+                                    <% }  %>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Description</label>
+                      <input type="text" name="description" placeholder="description" class="form-control" id="exampleInputEmail1"
+                          aria-describedby="emailHelp">
+                      <div id="emailHelp" class="form-text">
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">stock</label>
+                        <input type="text" class="form-control" name="stock" id="exampleInputPassword1">
+                      </div>
+              <div class="mb-3">
+                        <label class="form-label" for="cars">Brand:</label>
+                        <select  class="form-control bg-radient class," name="brand" id="cars">
+                          <% for(let i=0; i < brandData.length; i++) { %>
+                                  <option value="<%= brandData[i].brand %>" >
+                                      <%= brandData[i].brand %></option>
+                                      <% }  %>
+                         <select>
+                      </div>
+                      <br>
+                      
+                      <div class="mb-3">
+                      
+                        <label for="exampleInputPassword1" class="form-label">size</label>
+                        
+                        <select  class="form-control bg-radient class," name="size" id="cars">
+                          <% for(let i=0; i < sizeData.length; i++) { %>
+                                  <option value="<%= sizeData[i].size %>" >
+                                      <%= sizeData[i].size %></option>
+                                      <% }  %>
+                         <select>
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">color</label>
+                        <input type="text" class="form-control" name="color" id="exampleInputPassword1">
+                      </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                   <input  type="submit" class="btn btn-primary" value="ADD" >
+                </form>
+            </div>
+</div>
+  
+
+            <%-include('../partials/adminFooter.ejs')%>

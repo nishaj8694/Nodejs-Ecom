@@ -1,0 +1,115 @@
+<%-include('../partials/userHeader.ejs')%>
+<!-- Table Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+
+
+
+
+        <div class="col-12">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">ORDER DETAILS</h6>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+
+                                <th scope="col">Product Order Id</th>
+                                <th scope="col">OrderDate</th>
+                                <th scope="col">PaymentMethod</th>
+                                <th scope="col">Total Amount</th>
+                                <th scope="col">view</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Controls</th>
+                                
+                                <th scope="col">Return Products</th>
+                                <th></th>
+                                <th scope="col">invoice</th>
+
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if( orderData.length> 0){
+                                for (let i = orderData.length - 1; i >= 0; i--) { %>
+                                    <tr>
+                                        <!-- <th scope="row">1</th> -->
+                                        <td>
+                                            <%= orderData[i]._id %>
+                                        </td>
+                                        <!-- <td>Doe</td> -->
+                                        <td>
+                                            <%= orderData[i].date.toISOString().substring(0,10) %>
+                                        </td>
+                                        <td> <%= orderData[i].paymentMethod %></td>
+
+                                        <td>
+                                            <%= orderData[i].totalAmount %>
+                                        </td>
+                                        <td><a class="btn btn-info"
+                                            href="/single_order?id=<%=orderData[i]._id%>">view</a></td>
+                                        <td>
+
+                                            <% if (orderData[i].status==="placed") { %>
+                                        
+                                        <td><%= orderData[i].status %></td>
+                                            </td>
+                                            <td><a class="btn btn-danger"
+                                                href="/userorder_status?id=<%=orderData[i]._id%>">Cancel</a></td>
+                                                <% } else { %>
+                                                    <td class="font-weight-bold"><%= orderData[i].status %></td>
+                                                </td>
+                                                <td></td>
+                                                    
+                                            <%}%>
+                                            
+                                            <% if (orderData[i].status==="Delivered") { %>
+                                        
+                                                
+                                                    </td>
+                                                    <td><a class="btn btn-warning"
+                                                        href="/userReturn_order?id=<%=orderData[i]._id%>">return</a></td>
+        
+                                                        <% } else { %>
+                                                            <td class="font-weight-bold"></td>
+                                                        </td>
+                                                        
+                                                            
+                                                    <%}%>
+                                                    
+                                                    <% if (orderData[i].status==="Delivered") { %>
+                                        
+                                                
+                                                    </td>
+                                                    <td><a class="btn btn-warning"
+                                                        href="/invoice_order?id=<%=orderData[i]._id%>">download invoice</a></td>
+        
+                                                        <% } else { %>
+                                                            <td class="font-weight-bold"></td>
+                                                        </td>
+                                                        
+                                                            
+                                                    <%}%>
+                                            
+                                              
+                                    </tr>
+
+
+                                    <% } } else{ %>
+                                        <tr>
+                                            <td colspan="5">Not order Found</td>
+                                        </tr>
+                                        <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Table End -->
+
+<%-include('../partials/userFooter.ejs')%>

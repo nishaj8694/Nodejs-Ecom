@@ -1,0 +1,86 @@
+
+<%-include('../partials/userHeader.ejs')%>
+
+<div class="colorlib-product">
+
+    <div class="container">
+        
+        <div class="row row-pb-lg">
+            <div class="col-md-12">
+                <div class="product-name d-flex">
+                    <div class="one-forth text-left px-4">
+                        <span>Product Details</span>
+                    </div>
+                    <div class="one-eight text-center">
+                        <span>Price</span>
+                    </div>
+                    <div class="one-eight text-center">
+                        <span> description</span>
+                    </div>
+
+                    <div>
+
+                    </div>
+                    <div class="one-eight text-center">
+                        <span>.</span>
+                    </div>
+
+                    <div class="one-eight text-center px-4">
+                        <span>Remove</span>
+                    </div>
+                </div>
+
+
+                <% products.forEach((value,index)=>{%>
+                    
+                    
+                    
+						<div class="product-cart d-flex">
+							<div class="one-forth">
+								<div class="product-img" >
+                                    <img width=100px" height="100px" src="<%=value.productId.image%>" alt="">
+                                   
+								</div>
+								<div class="display-tc">
+									<h3><%=value.productId.name%></h3>
+								</div>
+							</div>
+							<div class="one-eight text-center">
+								<div class="display-tc">
+									<span class="price"><%=value.productId.price%></span>
+								</div>
+							</div>
+							<div class="one-eight text-center">
+								<div class="display-tc">
+									<!-- <input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="<%=value.productId.count%>" min="1" max="100"> -->
+                                    <h3><%=value.productId.description%></h3>
+								</div>
+							</div>
+							<div class="one-eight text-center">
+								<div class="display-tc">
+									<span class="price"></span>
+								</div>
+							</div>
+							<div class="one-eight text-center">
+								<div class="display-tc">
+									<a href="/whishlistdelete?proid=<%=value.productId._id%>&id= <%=userData._id%>" class="closed"></a>
+								</div>
+							</div>
+						</div>
+                       <%})%>
+                       
+            </div>
+            
+        </div>
+       
+        <div class="row row-pb-lg">
+            <div class="col-md-12">
+                <div class="total-wrap">
+                    <div class="row">
+                        
+                        
+                    </div>
+                </div>
+                
+              
+                    <%-include('../partials/userFooter.ejs')%>

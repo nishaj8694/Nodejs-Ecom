@@ -1,0 +1,60 @@
+<%-include('../partials/adminHead.ejs')%>
+
+
+            <!-- Table Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    
+                    
+                  
+                    <a class="btn btn-info" href="/admin/addproducts" >ADD-NEW_PRODUCT</a>
+                    <div class="col-12">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h6 class="mb-4">PRODUCTS DETAILS</h6>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            
+                                            <th scope="col">Name</th>                       
+                                            <th scope="col">price</th>
+                                            <th scope="col">category</th>
+                                            <th scope="col">discription</th>
+                                            <th scope="col">image</th>
+                                            <th scope="col">stock</th>
+                                            <th scope="col"></th>
+                                            <th scope="col"></th>
+
+                                            
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% for(let i=0;i<data.length;i++){%>
+                                       
+                                             
+                                             <td><%= data[i].name %></td>
+                                             <td><%= data[i].price%></td>
+                                             <td><%= data[i].category %></td>
+                                             <td><%= data[i].description %></td>
+                                             <td>  
+                                                <img width="50px" height="50px" src="<%= data[i].image %>" alt="load failed">
+                                             </td>
+                                             <td><%= data[i].stock%></td>
+                                             <td><a href="/admin/editProduct?id=<%=data[i]._id%>" class="btn btn-info">Edit</a></td>
+                                             <td><a href="/admin/deleteProduct?id=<%=data[i]._id%>" class="btn btn-danger">Delete Product</a></td>
+                                        </tr>
+                                        <%}%>
+                                   
+   
+</tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Table End -->
+            
+
+            <%-include('../partials/adminFooter.ejs')%>

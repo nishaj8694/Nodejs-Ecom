@@ -1,0 +1,64 @@
+<%-include('../partials/adminHead.ejs')%>
+<div class="container-fluid pt-4 px-4 ">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-6 ">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">ADD PRODUCT</h6>
+
+                <form method="post" enctype="multipart/form-data" >
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Product Name</label>
+                        <input type="text" name="name" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp"  value=" <%=data.name%>" >
+                        <div id="emailHelp" class="form-text">
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Price</label>
+                          <input type="number" name="price" class="form-control" id="exampleInputEmail1"
+                              aria-describedby="emailHelp" value="<%=data.price%>" >
+                          <div id="emailHelp" class="form-text">
+                          </div>
+                    </div>
+                    <div>
+                        <img width="100px" height="100px" class="rounded-3" src="<%=data.image%>" alt="">
+                        <label for="exampleInputPassword1"  class="form-label" >Current Image</label>
+                    </div>
+                    <div class="mb-3">
+                       <input  type="file" class="rounded-3"  value="" name="image" id="imginput">
+                    </div>
+  <div class="mb-3" >
+                    <label class="form-label" for="cars">Category:</label>
+  
+                    <select  class="form-control bg-light" name="category"  id="cars" >
+                      <option value="<%data.category%>"><%data.category%></option>
+                     
+                      <%for(let i=0;i<cata.length;i++){%>
+
+                       
+                      <option value="<%=cata[i].category%>"><%=cata[i].category%></option>
+                      <%}%>
+                     
+  
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Description</label>
+                      <input type="text" name="description" placeholder="description" class="form-control" id="exampleInputEmail1"
+                          aria-describedby="emailHelp  "   value="<%=data.description%>" >
+                      <div id="emailHelp" class="form-text">
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">stock</label>
+                        <input type="text" class="form-control" name="stock" id="exampleInputPassword1"value="<%=data.stock%>">
+                      </div>
+                      <br>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <input type="hidden" name="id" value="<%=data._id%>" >
+                   <input  type="submit" class="btn btn-primary" value="ADD" >
+                </form>
+            </div>
+        </div>
+<%-include('../partials/adminFooter.ejs')%>

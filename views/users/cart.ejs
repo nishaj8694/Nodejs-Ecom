@@ -1,0 +1,112 @@
+
+<%-include('../partials/userHeader.ejs')%>
+
+<div class="colorlib-product">
+
+    <div class="container">
+        
+        <div class="row row-pb-lg">
+            <div class="col-md-12">
+                <div class="product-name d-flex">
+                    <div class="one-forth text-left px-4">
+                        <span>Product Details</span>
+                    </div>
+                    <div class="one-eight text-center">
+                        <span>Price</span>
+                    </div>
+                    <div class="one-eight text-center">
+                        <span>Quantity</span>
+                    </div>
+
+                    <div>
+
+                    </div>
+                    <div class="one-eight text-center">
+                        <span>.</span>
+                    </div>
+
+                    <div class="one-eight text-center px-4">
+                        <span>Remove</span>
+                    </div>
+                </div>
+
+
+                <% products.forEach((value,index)=>{%>
+                    
+                    
+                    
+						<div class="product-cart d-flex">
+							<div class="one-forth">
+								<div class="product-img" >
+                                    <img width=100px" height="100px" src="<%=value.productId.image%>" alt="">
+                                   
+								</div>
+								<div class="display-tc">
+									<h3><%=value.productId.name%></h3>
+								</div>
+							</div>
+							<div class="one-eight text-center">
+								<div class="display-tc">
+									<span class="price"><%=value.productId.price%></span>
+								</div>
+							</div>
+							<div class="one-eight text-center">
+								<div class="display-tc">
+									<!-- <input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="<%=value.productId.count%>" min="1" max="100"> -->
+                                    <h3><%=value.count%></h3>
+								</div>
+							</div>
+							<div class="one-eight text-center">
+								<div class="display-tc">
+									<span class="price"></span>
+								</div>
+							</div>
+							<div class="one-eight text-center">
+								<div class="display-tc">
+									<a href="/cartdelete?proid=<%=value.productId._id%>&id= <%=userData._id%>" class="closed"></a>
+								</div>
+							</div>
+						</div>
+                       <%})%>
+                       
+            </div>
+            
+        </div>
+       
+        <div class="row row-pb-lg">
+            <div class="col-md-12">
+                <div class="total-wrap">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <form action="#">
+                                <div class="row form-group">
+                                    <div class="col-sm-9">
+                                        <input type="text" name="quantity" class="form-control input-number" placeholder="Your Coupon Number...">
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="submit" value="Apply Coupon" class="btn btn-primary">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-sm-4 text-center">
+                            <div class="total">
+                                <div class="sub">
+                                    <p><span>Subtotal:</span> <span><%=Total%></span></p>
+                                    <p><span>Delivery:</span> <span>$0.00</span></p>
+                                    <p><span>Discount:</span> <span>$0.00</span></p>
+                                </div>
+                                <div class="grand-total">
+                                    <p><span><strong>Total:</strong></span> <span><%=Total%></span></p>
+                                </div>
+                            </div>
+                            <br>
+                            <a href="/checkout"><button class="btn btn-primary ">Checkout</button> </a>
+
+                        </div>
+                        
+                    </div>
+                </div>
+                
+              
+                    <%-include('../partials/userFooter.ejs')%>

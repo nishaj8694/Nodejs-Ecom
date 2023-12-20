@@ -1,0 +1,37 @@
+<%-include('../partials/userHeader.ejs')%>
+
+
+<h3 class="text-center mt-3 icon-profile">PROFILE </h3>
+
+		<div id="colorlib-contact">
+           
+			<div class="container">
+        
+				<div class="row">
+					<div class="col-sm-12">
+						
+						<div class="row contact-info-wrap text-center">
+							<div class="col-md-12">
+								<p style="font-weight: bold;"><span><i class="icon-name"></i></span>Name: <%=userData.name%></p>
+							</div>
+							<div class="col-md-12">
+								<p style="font-weight: bold;"><span><i class="icon-phone3"></i></span> <a href="tel://1234567920">Mobile Number: <%=userData.mobile%></a></p>
+							</div>
+							<div class="col-md-12">
+								<p style="font-weight: bold;"><span><i class="icon-paperplane"></i></span> <a href="#">EMAIL:  <%=userData.email%> </a></p>
+							</div>
+							<div class="col-md-12">
+								<p style="font-weight: bold;"><span><i class="icon-globe"></i></span> <a href="#">yoursite.com</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<h4 style="font-weight: 900 ;" class="btn btn-primary">WALLET AMOUNT = <%=userData.wallet%></h4>
+					
+					
+				</div>
+				<a href="/myorder" class="btn btn-primary"> MY ORDER </a>
+			</div>
+		</div>
+        <%-include('../partials/userFooter.ejs')%>
